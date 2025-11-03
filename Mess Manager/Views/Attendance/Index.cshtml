@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Mess_Manager.Models.Attendance>
+@{
+    ViewData["Title"] = "Attendance Records";
+}
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+    </thea>
+    <tbody>
+        @foreach (var attendance in Model)
+        {
+            <tr>
+                <td>@attendance.Id</td>
+                <td>@attendance.Status</td>
+                <td>@attendance.Date.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@attendance.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@attendance.Id">Details</a> |
+                    <form class="m-1" method="post" asp-action="Delete" asp-route-id="@attendance.Id" onclick="return confirm('Are You Sure Delete this Data')">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
