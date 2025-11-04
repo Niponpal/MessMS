@@ -9,6 +9,6 @@ public class Meal
     public float Quantity { get; set; }
 
     // Relationships
-    //public Member Member { get; set; }
-    //public int MemberId { get; set; }
+    public Member Member { get; set; }
+    public int MemberId { get; set; }
 }

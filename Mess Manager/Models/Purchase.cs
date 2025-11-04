@@ -8,9 +8,9 @@ public class Purchase
     public decimal Price { get; set; }
     public DateTime PurchaseDate { get; set; }
 
-    // Relationships
-    //public int SupplierId { get; set; }
-    //public int ItemId { get; set; }
-    //public Supplier Supplier { get; set; }
-    //public Inventory Inventory { get; set; }
+   // Relationships
+    public int SupplierId { get; set; }
+    public int ItemId { get; set; }
+    public Supplier Supplier { get; set; }
+    public Inventory Inventory { get; set; }
 }

@@ -11,6 +11,6 @@ public class Member
     public bool Status { get; set; }
 
     //// Relationships
-    //public ICollection<Meal> Meals { get; set; } = new List<Meal>();
-    //public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+    public ICollection<Meal> Meals { get; set; } = new List<Meal>();
+    public ICollection<Payment> Payments { get; set; } = new List<Payment>();
 }

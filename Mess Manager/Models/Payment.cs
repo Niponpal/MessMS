@@ -7,7 +7,7 @@ public class Payment
     public string PaymentMethod { get; set; } = string.Empty;
 
     // Relationships
-    //public Member Member { get; set; }
-    //public int MemberId { get; set; }
-    //public decimal AmountPaid { get; set; }
+    public Member Member { get; set; }
+    public int MemberId { get; set; }
+    public decimal AmountPaid { get; set; }
 }

@@ -10,5 +10,5 @@ public class Staff
     public DateTime JoiningDate { get; set; }
 
     // Relationships
-    //public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+    public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
 }

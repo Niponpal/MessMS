@@ -9,5 +9,5 @@ public class Supplier
     public string Address { get; set; } = string.Empty;
 
     // Relationships
-   // public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
+    public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
 }

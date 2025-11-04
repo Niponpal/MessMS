@@ -10,5 +10,5 @@ public class Inventory
     public DateTime ExpiryDate { get; set; }
 
     // Relationships
-   // public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
+    public ICollection<Purchase> Purchases { get; set; } = new List<Purchase>();
 }
