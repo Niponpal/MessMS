@@ -1,12 +1,197 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\NP\\Desktop\\MessMS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\imenurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\imenurepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\istaffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\istaffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\ipurchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\ipurchaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\inventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\imemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\imemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\imealrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\imealrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\iinventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\iinventoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|c:\\users\\np\\desktop\\messms\\mess manager\\repository\\iattendancerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D87F88E7-8220-452D-B877-EC4D8AF9A38C}|Mess Manager\\Mess Manager.csproj|solutionrelative:mess manager\\repository\\iattendancerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ISupplierRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\ISupplierRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\ISupplierRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\ISupplierRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\ISupplierRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:32.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IStaffRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IStaffRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IStaffRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IStaffRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IStaffRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:31.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPurchaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IPurchaseRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IPurchaseRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IPurchaseRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IPurchaseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:29.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IPaymentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IPaymentRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IPaymentRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IPaymentRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IPaymentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:28.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InventoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\InventoryRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\InventoryRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\InventoryRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\InventoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:26.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IMenuRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMenuRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IMenuRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMenuRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IMenuRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:25.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IMemberRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMemberRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IMemberRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMemberRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IMemberRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:24.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IMealRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMealRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IMealRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IMealRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IMealRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:23.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IInventoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IInventoryRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IInventoryRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IInventoryRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IInventoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:21.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IExpenseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IExpenseRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IExpenseRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IExpenseRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IExpenseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:20.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IAttendanceRepository.cs",
+              "DocumentMoniker": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IAttendanceRepository.cs",
+              "RelativeDocumentMoniker": "Mess Manager\\Repository\\IAttendanceRepository.cs",
+              "ToolTip": "C:\\Users\\NP\\Desktop\\MessMS\\Mess Manager\\Repository\\IAttendanceRepository.cs",
+              "RelativeToolTip": "Mess Manager\\Repository\\IAttendanceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:40:19.074Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
