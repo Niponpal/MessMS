@@ -1,0 +1,49 @@
+﻿@model Mess_Manager.Models.Attendance
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white text-center py-3">
+            <h4 class="mb-0">Add Attendance</h4>
+        </div>
+        <div class="card-body px-5 py-4">
+            <form asp-action="CreateOrEdit" method="post">
+
+                <!-- Attendance Date -->
+                <div class="mb-3">
+                    <label asp-for="Date" class="form-label fw-semibold">Attendance Date</label>
+                    <input asp-for="Date" type="date" class="form-control shadow-sm" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <!-- Attendance Status -->
+                <div class="mb-3">
+                    <label asp-for="Status" class="form-label fw-semibold">Status</label>
+                    <select asp-for="Status" class="form-select shadow-sm">
+                        <option value="">-- Select Status --</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <!-- Staff Selection -->
+                <div class="mb-3">
+                    <label asp-for="StaffId" class="form-label fw-semibold">Select Staff</label>
+                    <select asp-for="StaffId" class="form-select shadow-sm" asp-items="ViewBag.StaffList">
+                        <option value="">-- Choose Staff --</option>
+                    </select>
+                    <span asp-validation-for="StaffId" class="text-danger"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to List</a>
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-check-circle me-2"></i>Save Attendance
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

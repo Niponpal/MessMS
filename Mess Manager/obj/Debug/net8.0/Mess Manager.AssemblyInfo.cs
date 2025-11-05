@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mess Manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9b294cccc4f5aeba9ae131f2f25e5e92805310e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+682e1a5708dc125aba1997a6e3a886f1bc3077f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mess Manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mess Manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

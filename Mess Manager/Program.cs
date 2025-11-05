@@ -13,11 +13,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(x =>x.UseSqlServer(builder.C
 // Dependency Injection for Repository
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
-builder.Services.AddScoped<InventoryRepository, InventoryRepository>();
+builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
 builder.Services.AddScoped<IMealRepository, MealRepository>();
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 
 
 var app = builder.Build();

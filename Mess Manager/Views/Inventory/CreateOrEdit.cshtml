@@ -1,0 +1,68 @@
+﻿@model Mess_Manager.Models.Inventory
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+            <h4 class="mb-0"><i class="bi bi-box-seam me-2"></i>Add New Inventory Item</h4>
+        </div>
+
+        <div class="card-body px-5 py-4">
+            <form asp-action="CreateOrEdit" method="post">
+
+                <!-- Item Name -->
+                <div class="mb-3">
+                    <label asp-for="ItemName" class="form-label fw-semibold">Item Name</label>
+                    <input asp-for="ItemName" class="form-control shadow-sm" placeholder="Enter item name" />
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-3">
+                    <label asp-for="Quantity" class="form-label fw-semibold">Quantity</label>
+                    <input asp-for="Quantity" type="number" min="0" class="form-control shadow-sm" placeholder="Enter quantity" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <!-- Unit -->
+                <div class="mb-3">
+                    <label asp-for="Unit" class="form-label fw-semibold">Unit</label>
+                    <select asp-for="Unit" class="form-select shadow-sm">
+                        <option value="">-- Select Unit --</option>
+                        <option value="kg">Kilogram (kg)</option>
+                        <option value="g">Gram (g)</option>
+                        <option value="L">Litre (L)</option>
+                        <option value="ml">Millilitre (ml)</option>
+                        <option value="pcs">Pieces (pcs)</option>
+                        <option value="pack">Pack</option>
+                    </select>
+                    <span asp-validation-for="Unit" class="text-danger"></span>
+                </div>
+
+                <!-- Purchase Date -->
+                <div class="mb-3">
+                    <label asp-for="PurchaseDate" class="form-label fw-semibold">Purchase Date</label>
+                    <input asp-for="PurchaseDate" type="date" class="form-control shadow-sm" />
+                    <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                </div>
+
+                <!-- Expiry Date -->
+                <div class="mb-3">
+                    <label asp-for="ExpiryDate" class="form-label fw-semibold">Expiry Date</label>
+                    <input asp-for="ExpiryDate" type="date" class="form-control shadow-sm" />
+                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Back to List
+                    </a>
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-box-arrow-in-down me-2"></i>Save Item
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
