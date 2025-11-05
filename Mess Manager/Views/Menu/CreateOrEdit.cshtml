@@ -1,0 +1,73 @@
+﻿@model Mess_Manager.Models.Menu
+
+@{
+    ViewData["Title"] = "Add New Menu";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #00c6ff, #007bff);">
+                    <h4 class="mb-0 text-center fw-semibold">
+                        <i class="bi bi-card-list me-2"></i> Add New Menu Item
+                    </h4>
+                </div>
+
+                <div class="card-body px-4 py-4">
+                    <form asp-action="Create" method="post">
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="MenuDate" class="form-control" type="date" placeholder="Select Menu Date" />
+                            <label asp-for="MenuDate">Menu Date</label>
+                            <span asp-validation-for="MenuDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select asp-for="MealType" class="form-select" aria-label="Select Meal Type">
+                                <option value="">-- Select Meal Type --</option>
+                                <option>Breakfast</option>
+                                <option>Lunch</option>
+                                <option>Dinner</option>
+                            </select>
+                            <label asp-for="MealType">Meal Type</label>
+                            <span asp-validation-for="MealType" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="ItemName" class="form-control" placeholder="Enter item name" />
+                            <label asp-for="ItemName">Item Name</label>
+                            <span asp-validation-for="ItemName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="Quantity" class="form-control" placeholder="Enter quantity" />
+                            <label asp-for="Quantity">Quantity</label>
+                            <span asp-validation-for="Quantity" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                                <i class="bi bi-arrow-left-circle me-1"></i> Back
+                            </a>
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-save2-fill me-1"></i> Save Menu
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <p class="text-muted text-center mt-3 small">
+                © @DateTime.Now.Year - Mess Manager System
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,75 @@
+﻿@model Mess_Manager.Models.Payment
+
+@{
+    ViewData["Title"] = "Add New Payment";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card border-0 shadow-lg rounded-3">
+                <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #00c6ff, #007bff);">
+                    <h4 class="mb-0 text-center fw-semibold">
+                        <i class="bi bi-cash-stack me-2"></i> Add New Payment
+                    </h4>
+                </div>
+
+                <div class="card-body px-4 py-4">
+                    <form asp-action="CreateOrEdit" method="post">
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="PaymentDate" class="form-control" type="date" placeholder="Select Payment Date" />
+                            <label asp-for="PaymentDate">Payment Date</label>
+                            <span asp-validation-for="PaymentDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select asp-for="PaymentMethod" class="form-select" aria-label="Select Payment Method">
+                                <option value="">-- Select Payment Method --</option>
+                                <option>Cash</option>
+                                <option>Bank Transfer</option>
+                                <option>Mobile Banking</option>
+                            </select>
+                            <label asp-for="PaymentMethod">Payment Method</label>
+                            <span asp-validation-for="PaymentMethod" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select asp-for="MemberId" class="form-select" asp-items="ViewBag.MemberList">
+                                <option value="">-- Select Member --</option>
+                            </select>
+                            <label asp-for="MemberId">Member Name</label>
+                            <span asp-validation-for="MemberId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="AmountPaid" class="form-control" type="number" step="0.01" placeholder="Enter amount paid" />
+                            <label asp-for="AmountPaid">Amount Paid</label>
+                            <span asp-validation-for="AmountPaid" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                                <i class="bi bi-arrow-left-circle me-1"></i> Back
+                            </a>
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-save2-fill me-1"></i> Save Payment
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <p class="text-muted text-center mt-3 small">
+                © @DateTime.Now.Year - Mess Manager System
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
