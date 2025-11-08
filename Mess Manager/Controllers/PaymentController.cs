@@ -7,6 +7,11 @@ namespace Mess_Manager.Controllers
     public class PaymentController : Controller
     {
         private readonly IPaymentRepository _paymentRepository;
+        
+        public PaymentController(IPaymentRepository paymentRepository)
+        {
+            _paymentRepository = paymentRepository;
+        }
 
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
@@ -18,7 +23,7 @@ namespace Mess_Manager.Controllers
         {
             if (id == 0)
             {
-                return View(new Attendance());
+                return View(new Payment());
             }
             var payments = await _paymentRepository.GetPaymentByIdAsync(id, cancellationToken);
             if (payments == null)

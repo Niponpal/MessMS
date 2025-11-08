@@ -22,7 +22,7 @@ namespace Mess_Manager.Controllers
         {
             if (id == 0)
             {
-                return View(new Attendance());
+                return View(new Meal());
             }
             var meals = await _mealRepository.GetMealByIdAsync(id, cancellationToken);
             if (meals == null)

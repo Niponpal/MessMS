@@ -22,7 +22,7 @@ namespace Mess_Manager.Controllers
         {
             if (id == 0)
             {
-                return View(new Attendance());
+                return View(new Purchase());
             }
             var purchases = await _purchaseRepository.GetPurchaseByIdAsync(id, cancellationToken);
             if (purchases == null)
