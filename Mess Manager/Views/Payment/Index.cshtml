@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Mess_Manager.Models.Payment>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">DataTable with Attendance</h3>
+        <a asp-action="CreateOrEdit" class="btn btn-primary ">
+            <i class="bi bi-plus-circle"></i> Create New Attendance
+        </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Member Name</th>
+                    <th>Payment Date</th>
+                    <th>Payment Method</th>
+                    <th>Amount Paid (৳)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Member?.Name</td>
+                        <td>@item.PaymentDate.ToString("dd-MMM-yyyy")</td>
+                        <td>@item.PaymentMethod</td>
+                        <td>@item.AmountPaid.ToString("0.00")</td>
+                        <!-- Actions -->
+                        <td class="text-center">
+
+                            <div class="d-flex flex-wrap justify-content-center gap-1">
+
+                                <!-- Edit Button -->
+                                <a asp-action="CreateOrEdit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <!-- Delete Button -->
+                                <form method="post" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+
+                                <!-- Details Button -->
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Member Name</th>
+                    <th>Payment Date</th>
+                    <th>Payment Method</th>
+                    <th>Amount Paid (৳)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
