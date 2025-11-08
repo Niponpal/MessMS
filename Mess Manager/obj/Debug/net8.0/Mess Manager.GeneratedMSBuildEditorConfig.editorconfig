@@ -68,12 +68,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Inventory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50b3J5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Meal/CreateOrEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxDcmVhdGVPckVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Meal/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Meal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Member/CreateOrEdit.cshtml]
@@ -84,12 +92,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Member/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Menu/CreateOrEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxDcmVhdGVPckVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Menu/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Menu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/NP/Desktop/MessMS/Mess Manager/Views/Payment/CreateOrEdit.cshtml]
