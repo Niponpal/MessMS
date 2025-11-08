@@ -1,5 +1,109 @@
 ﻿@model IEnumerable<Mess_Manager.Models.Attendance>
-@{
+
+
+
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">DataTable with Attendance</h3>
+        <a asp-action="CreateOrEdit" class="btn btn-primary ">
+            <i class="bi bi-plus-circle"></i> Create New Attendance
+        </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>In Time</th>
+                    <th>Out Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var attendance in Model)
+                {
+                    <tr>
+                        <td>@attendance.Id</td>
+                        <td>@attendance.Status</td>
+                        <td>@attendance.Date.ToString("yyyy-MM-dd")</td>
+                        <!-- Actions -->
+                        <td class="text-center">
+
+                            <div class="d-flex flex-wrap justify-content-center gap-1">
+
+                                <!-- Edit Button -->
+                                <a asp-action="CreateOrEdit" asp-route-id="@attendance.Id" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <!-- Delete Button -->
+                                <form method="post" asp-action="Delete" asp-route-id="@attendance.Id" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+
+                                <!-- Details Button -->
+                                <a asp-action="Details" asp-route-id="@attendance.Id" class="btn btn-sm btn-info">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>In Time</th>
+                    <th>Out Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+          // $("#example1").DataTable({
+          //   "responsive": true, "lengthChange": false, "autoWidth": false,
+          //   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          // }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+          $('#example1').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+          });
+        });
+    </script>
+
+    }
+
+
+
+
+
+@* @{
     ViewData["Title"] = "Attendance Records";
 }
 
@@ -31,3 +135,7 @@
         }
     </tbody>
 </table>
+
+ *@
+
+
