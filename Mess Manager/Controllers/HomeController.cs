@@ -18,6 +18,8 @@ namespace Mess_Manager.Controllers
             return View();
         }
 
+      
+
         public IActionResult Privacy()
         {
             return View();
