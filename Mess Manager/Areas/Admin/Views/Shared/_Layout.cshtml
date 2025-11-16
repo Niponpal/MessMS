@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mess_Manager</title>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fb;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #0d6efd, #4e73df);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #e9ecef !important;
+            font-weight: 500;
+            margin-right: 12px;
+            transition: 0.3s;
+        }
+
+            .nav-link:hover {
+                color: #fff !important;
+                text-decoration: underline;
+            }
+
+        .footer {
+            background-color: #fff;
+            padding: 20px 0;
+            color: #6c757d;
+            font-size: 15px;
+            border-top: 1px solid #dee2e6;
+        }
+
+            .footer a {
+                color: #0d6efd;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Mess_Manager.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="/">🍽 Mess Manager</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Meal">Meals</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Expense">Expenses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Inventory">Inventory</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Attendance">Attendance</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Account/Logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-1">© @DateTime.Now.Year <strong>Mess Manager</strong>. All Rights Reserved.</p>
+            <p>Developed by <a href="https://github.com/Niponpal" target="_blank">Nipon Chondra Pal</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
