@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mess_Manager.Areas.Admin.Controllers;
 
+[Area("Admin")]
 public class AttendanceController : Controller
 {
+ 
     private readonly IAttendanceRepository _attendance;
     public AttendanceController(IAttendanceRepository attendance)
     {
