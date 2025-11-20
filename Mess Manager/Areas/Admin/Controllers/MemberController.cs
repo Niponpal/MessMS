@@ -8,13 +8,13 @@ namespace Mess_Manager.Areas.Admin.Controllers
     {
         private readonly IMemberRepository _memberRepository;
 
-        public MemberController(IMemberRepository memberRepository)
+        public MemberController(IMemberRepository memberRepository) 
         {
             _memberRepository = memberRepository;
         }
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
-            var members = await _memberRepository.GetAllMembersAsync(cancellationToken);
+            var members = await _memberRepository.GetAllMembersAsync(cancellationToken); 
             return View(members);
         }
         [HttpGet]

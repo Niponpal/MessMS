@@ -27,7 +27,7 @@ namespace Mess_Manager.Areas.Admin.Controllers
             var supplier = await _supplierRepository.GetSupplierByIdAsync(id, cancellationToken);
             if (supplier == null)
             {
-                return NotFound();
+                return NotFound(); 
             }
             return View(supplier);
         }
