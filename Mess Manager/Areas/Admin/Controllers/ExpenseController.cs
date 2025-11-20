@@ -3,7 +3,7 @@ using Mess_Manager.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Mess_Manager.Controllers
+namespace Mess_Manager.Areas.Admin.Controllers
 {
     public class ExpenseController : Controller
     {
