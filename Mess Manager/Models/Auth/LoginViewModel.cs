@@ -4,9 +4,12 @@ namespace Mess_Manager.Models.Auth;
 
 public class LoginViewModel
 {
-    [Required, EmailAddress]
-    public string Email { get; set; }
+    [Required]
+    public string Username { get; set; }
 
-    [Required, DataType(DataType.Password)]
+    [Required]
+    [MinLength(6, ErrorMessage = "Password has to be at least 6 characters")]
     public string Password { get; set; }
+
+    public string? ReturnUrl { get; set; }
 }

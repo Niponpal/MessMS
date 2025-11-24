@@ -1,5 +1,6 @@
 using Mess_Manager.Data;
 using Mess_Manager.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,19 @@ builder.Services.AddControllersWithViews();
 
 // Configure DbContext with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(x =>x.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+
+
+});
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Dependency Injection for Repository
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
