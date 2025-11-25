@@ -22,6 +22,8 @@ public class ApplicationDbContext : IdentityDbContext<
     {
     }
 
+
+
     public DbSet<Attendance> Attendances { get; set; }
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<Inventory> Inventories { get; set; }
@@ -33,10 +35,75 @@ public class ApplicationDbContext : IdentityDbContext<
     public DbSet<Staff> Staffs { get; set; }
     public DbSet<Supplier> Suppliers { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
 
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+    {
+        // Configure Attendance-Staff relationship with cascade delete
+        modelBuilder.Entity<Attendance>()
+        .HasOne(a => a.Staff)
+        .WithMany(s => s.Attendances)
+        .HasForeignKey(a => a.StaffId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+        // Configure Purchase-Inventory relationship with cascade delete
+        modelBuilder.Entity<Purchase>()
+        .HasOne(p => p.Inventory)
+        .WithMany(i => i.Purchases)
+        .HasForeignKey(p => p.InventoryId)
+        .OnDelete(DeleteBehavior.Cascade);
+        // Configure Meal-Member relationship with cascade delete
+         modelBuilder.Entity<Meal>()
+        .HasOne(m => m.Member)
+        .WithMany(mem => mem.Meals)
+        .HasForeignKey(m => m.MemberId)
+        .OnDelete(DeleteBehavior.Cascade);
+        // Configure Meal-Member relationship with cascade delete
+         modelBuilder.Entity<Meal>()
+        .HasOne(m => m.Member)
+        .WithMany(mem => mem.Meals)
+        .HasForeignKey(m => m.MemberId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+        // Configure Payment-Member relationship with cascade delete
+         modelBuilder.Entity<Payment>()
+        .HasOne(p => p.Member)
+        .WithMany(m => m.Payments)
+        .HasForeignKey(p => p.MemberId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+
+        // Purchase → Supplier (many-to-one)
+          modelBuilder.Entity<Purchase>()
+            .HasOne(p => p.Supplier)
+            .WithMany(s => s.Purchases)
+            .HasForeignKey(p => p.SupplierId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Purchase → Inventory (many-to-one)
+             modelBuilder.Entity<Purchase>()
+            .HasOne(p => p.Inventory)
+            .WithMany(i => i.Purchases)
+            .HasForeignKey(p => p.InventoryId)
+            .OnDelete(DeleteBehavior.Cascade);
+        // Configure Attendance-Staff relationship with cascade delete
+          modelBuilder.Entity<Attendance>()
+        .HasOne(a => a.Staff)
+        .WithMany(s => s.Attendances)
+        .HasForeignKey(a => a.StaffId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+        // Configure Purchase-Supplier relationship with cascade delete
+         modelBuilder.Entity<Purchase>()
+        .HasOne(p => p.Supplier)
+        .WithMany(s => s.Purchases)
+        .HasForeignKey(p => p.SupplierId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+
+
+        base.OnModelCreating(modelBuilder);
         // Automatically apply configurations
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
@@ -49,5 +116,7 @@ public class ApplicationDbContext : IdentityDbContext<
         optionsBuilder.LogTo(Console.WriteLine);
         optionsBuilder.UseLoggerFactory(new LoggerFactory(new[] { new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider() }));
     }
+
+
  
 }

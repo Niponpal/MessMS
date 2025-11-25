@@ -280,15 +280,14 @@ namespace Mess_Manager.Migrations
                     MealDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MealType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Quantity = table.Column<float>(type: "real", nullable: false),
-                    MemberId1 = table.Column<int>(type: "int", nullable: false),
-                    MemberId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    MemberId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Meals_Members_MemberId1",
-                        column: x => x.MemberId1,
+                        name: "FK_Meals_Members_MemberId",
+                        column: x => x.MemberId,
                         principalTable: "Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -302,8 +301,8 @@ namespace Mess_Manager.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MemberId = table.Column<int>(type: "int", nullable: false),
-                    AmountPaid = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    AmountPaid = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MemberId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -346,8 +345,8 @@ namespace Mess_Manager.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SupplierId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
+                    SupplierId = table.Column<int>(type: "int", nullable: false),
                     InventoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -381,8 +380,8 @@ namespace Mess_Manager.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedBy", "CreatedDate", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedBy", "UpdatedDate", "UserName" },
                 values: new object[,]
                 {
-                    { 1L, 0, "171e6ff5-92a0-4f7b-8ed6-818be1b29662", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "admin@localhost.com", true, false, null, "", "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEAPp9yazV7VN5EpeRj04c2+Xxjx2rrjeZy6JhASBAUcAuNmYRwO5N+esw8zNMpHnGg==", null, false, "2b1e48db-d53c-43ff-800e-3521fa5e64a4", false, null, null, "admin@localhost.com" },
-                    { 2L, 0, "e398633f-c1e7-4f15-83a4-42a174963b4d", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "employee@localhost.com", true, false, null, "", "EMPLOYEE@LOCALHOST.COM", "EMPLOYEE@LOCALHOST.COM", "AQAAAAIAAYagAAAAEGF3chMa2WiW1nGWDGgcl7hnUDuzcMIgSfhfSJZlZNO4lpkoyUTsH+yO4Nmqv/J1OQ==", null, false, "43279d81-6378-47ce-9211-86e06a34d4f8", false, null, null, "employee@localhost.com" }
+                    { 1L, 0, "e88ef13b-028b-4416-ab21-b35b2057afb1", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "admin@localhost.com", true, false, null, "", "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEMMHezY+56LX9edziJcf5cEBOZ6ZRRJb+3qYj/xjGSEvV7SlPeB/s2ukRghitOBKvw==", null, false, "ea197a5e-4d35-4064-91f5-33d4ebb9b80b", false, null, null, "admin@localhost.com" },
+                    { 2L, 0, "34d9d8c7-737f-43d4-8ed2-e18e327ae788", 0L, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "employee@localhost.com", true, false, null, "", "EMPLOYEE@LOCALHOST.COM", "EMPLOYEE@LOCALHOST.COM", "AQAAAAIAAYagAAAAEP6kLUto1L5wCGQXqAY2EP+3UMR9YxDLCcAyFVCqkViNPjXv81n8c5kctAa47r51bg==", null, false, "01799628-ec08-436e-a90d-fb8263667727", false, null, null, "employee@localhost.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,9 +438,9 @@ namespace Mess_Manager.Migrations
                 column: "StaffId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Meals_MemberId1",
+                name: "IX_Meals_MemberId",
                 table: "Meals",
-                column: "MemberId1");
+                column: "MemberId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payments_MemberId",

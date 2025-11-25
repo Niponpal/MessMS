@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mess_Manager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251125044828_ints")]
+    [Migration("20251125104202_ints")]
     partial class ints
     {
         /// <inheritdoc />
@@ -208,7 +208,7 @@ namespace Mess_Manager.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "171e6ff5-92a0-4f7b-8ed6-818be1b29662",
+                            ConcurrencyStamp = "e88ef13b-028b-4416-ab21-b35b2057afb1",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -217,9 +217,9 @@ namespace Mess_Manager.Migrations
                             Name = "",
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAPp9yazV7VN5EpeRj04c2+Xxjx2rrjeZy6JhASBAUcAuNmYRwO5N+esw8zNMpHnGg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMMHezY+56LX9edziJcf5cEBOZ6ZRRJb+3qYj/xjGSEvV7SlPeB/s2ukRghitOBKvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2b1e48db-d53c-43ff-800e-3521fa5e64a4",
+                            SecurityStamp = "ea197a5e-4d35-4064-91f5-33d4ebb9b80b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -227,7 +227,7 @@ namespace Mess_Manager.Migrations
                         {
                             Id = 2L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e398633f-c1e7-4f15-83a4-42a174963b4d",
+                            ConcurrencyStamp = "34d9d8c7-737f-43d4-8ed2-e18e327ae788",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "employee@localhost.com",
@@ -236,9 +236,9 @@ namespace Mess_Manager.Migrations
                             Name = "",
                             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
                             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGF3chMa2WiW1nGWDGgcl7hnUDuzcMIgSfhfSJZlZNO4lpkoyUTsH+yO4Nmqv/J1OQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP6kLUto1L5wCGQXqAY2EP+3UMR9YxDLCcAyFVCqkViNPjXv81n8c5kctAa47r51bg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43279d81-6378-47ce-9211-86e06a34d4f8",
+                            SecurityStamp = "01799628-ec08-436e-a90d-fb8263667727",
                             TwoFactorEnabled = false,
                             UserName = "employee@localhost.com"
                         });
@@ -432,10 +432,7 @@ namespace Mess_Manager.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("MemberId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("MemberId1")
+                    b.Property<int>("MemberId")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantity")
@@ -443,7 +440,7 @@ namespace Mess_Manager.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId1");
+                    b.HasIndex("MemberId");
 
                     b.ToTable("Meals");
                 });
@@ -700,7 +697,7 @@ namespace Mess_Manager.Migrations
                 {
                     b.HasOne("Mess_Manager.Models.Member", "Member")
                         .WithMany("Meals")
-                        .HasForeignKey("MemberId1")
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
