@@ -102,10 +102,11 @@
                                     @User?.Identity?.Name
                                 </div>
 
-                                <a class="btn me-3 bg-light text-dark"
-                                   asp-area=""
-                                   asp-controller="Account"
-                                   asp-action="Logout">Logout</a>
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn me-3 bg-light text-dark">Logout</button>
+                                </form>
+
                             }
                             else
                             {
@@ -123,8 +124,6 @@
                             }
 
                         </div>
-
-
                     </ul>
                 </div>
             </div>

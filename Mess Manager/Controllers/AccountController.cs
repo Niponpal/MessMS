@@ -32,7 +32,7 @@ public class AccountController : Controller
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = "/Dashboard")
+    public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = "/Dashboard") 
     {
         if (!ModelState.IsValid)
         {
@@ -49,7 +49,7 @@ public class AccountController : Controller
         {
             await _signInManager.SignInAsync(user, false);
         }
-        return LocalRedirect(returnUrl);
+        return RedirectToAction("Index", "Home");
     }
     [HttpPost]
     [AllowAnonymous]
@@ -60,7 +60,7 @@ public class AccountController : Controller
 
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
         if (result.Succeeded)
-            return LocalRedirect("/Dashboard");
+            return LocalRedirect("/Admin/Dashboard/Index");
         ModelState.AddModelError(string.Empty, "Invalid login attempt.");
         return View(model);
     }
@@ -68,7 +68,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Login", "Account");
+        return RedirectToAction("Index", "Home");
     }
 
 
