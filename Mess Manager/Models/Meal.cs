@@ -10,5 +10,5 @@ public class Meal
 
     // Relationships
     public Member Member { get; set; }
-    public int MemberId { get; set; }
+    public Guid MemberId { get; set; }
 }

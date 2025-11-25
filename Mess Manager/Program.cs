@@ -1,30 +1,38 @@
+using Mess_Manager;
+using Mess_Manager.Auth_IdentityModel;
 using Mess_Manager.Data;
 using Mess_Manager.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using static Mess_Manager.Auth_IdentityModel.IdentityModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services
 builder.Services.AddControllersWithViews();
 
 // Configure DbContext with SQL Server
-builder.Services.AddDbContext<ApplicationDbContext>(x =>x.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
 
-builder.Services.Configure<IdentityOptions>(options =>
+// Add Identity with custom classes and long key
+builder.Services.AddIdentity<User, Role>(options =>
 {
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
-    options.Password.RequireNonAlphanumeric = true;
-    options.Password.RequireUppercase = true;
+    options.Password.RequireUppercase = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
 
-});
+// Add HttpContextAccessor
+builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-// Dependency Injection for Repository
+// Add repositories
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
@@ -36,14 +44,12 @@ builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -52,15 +58,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Identity authentication & authorization
+app.UseAuthentication();
 app.UseAuthorization();
 
-
+// Map routes
 app.MapControllerRoute(
-      name: "areas",
-            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-          );
-
-
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

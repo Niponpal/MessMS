@@ -1,15 +1,27 @@
-﻿using Mess_Manager.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Mess_Manager.Auth_IdentityModel;
+using Mess_Manager.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.Reflection;
 
 namespace Mess_Manager.Data;
 
-public class ApplicationDbContext: IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<
+    IdentityModel.User,
+    IdentityModel.Role,
+    long,
+    IdentityModel.UserClaim,
+    IdentityModel.UserRole,
+    IdentityModel.UserLogin,
+    IdentityModel.RoleClaim,
+    IdentityModel.UserToken>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> Options):base(Options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
     }
+
     public DbSet<Attendance> Attendances { get; set; }
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<Inventory> Inventories { get; set; }
@@ -21,82 +33,21 @@ public class ApplicationDbContext: IdentityDbContext
     public DbSet<Staff> Staffs { get; set; }
     public DbSet<Supplier> Suppliers { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
 
-
-        // Seed Roles (User, Admin, SuperAdmin)
-
-        var adminRoleId = "37cc67e1-41ca-461c-bf34-2b5e62dbae32";
-        var superAdminRoleId = "3cfd9eee-08cb-4da3-9e6f-c3166b50d3b0";
-        var userRoleId = "a0cab2c3-6558-4a1c-be81-dfb39180da3d";
-
-        var roles = new List<IdentityRole>
-        {
-            new IdentityRole
-            {
-                Name= "Admin",
-                NormalizedName = "Admin",
-                Id = adminRoleId,
-                ConcurrencyStamp = adminRoleId
-            },
-            new IdentityRole
-            {
-                Name = "SuperAdmin",
-                NormalizedName = "SuperAdmin",
-                Id = superAdminRoleId,
-                ConcurrencyStamp = superAdminRoleId
-            },
-            new IdentityRole
-            {
-                Name = "User",
-                NormalizedName = "User",
-                Id = userRoleId,
-                ConcurrencyStamp = userRoleId
-            }
-        };
-
-        builder.Entity<IdentityRole>().HasData(roles);
-
-        // Seed SuperAdminUser
-        var superAdminId = "472ba632-6133-44a1-b158-6c10bd7d850d";
-        var superAdminUser = new IdentityUser
-        {
-            UserName = "superadmin@bloggie.com",
-            Email = "superadmin@bloggie.com",
-            NormalizedEmail = "superadmin@bloggie.com".ToUpper(),
-            NormalizedUserName = "superadmin@bloggie.com".ToUpper(),
-            Id = superAdminId
-        };
-
-        superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>()
-            .HashPassword(superAdminUser, "Superadmin@123");
-
-
-        builder.Entity<IdentityUser>().HasData(superAdminUser);
-
-
-        // Add All roles to SuperAdminUser
-        var superAdminRoles = new List<IdentityUserRole<string>>
-        {
-            new IdentityUserRole<string>
-            {
-                RoleId = adminRoleId,
-                UserId = superAdminId
-            },
-            new IdentityUserRole<string>
-            {
-                RoleId = superAdminRoleId,
-                UserId = superAdminId
-            },
-            new IdentityUserRole<string>
-            {
-                RoleId = userRoleId,
-                UserId = superAdminId
-            }
-        };
-
-        builder.Entity<IdentityUserRole<string>>().HasData(superAdminRoles);
+        // Automatically apply configurations
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.ConfigureWarnings(warnings =>
+        warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+        optionsBuilder.LogTo(Console.WriteLine);
+        optionsBuilder.UseLoggerFactory(new LoggerFactory(new[] { new Microsoft.Extensions.Logging.Debug.DebugLoggerProvider() }));
     }
+ 
+}
