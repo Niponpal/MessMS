@@ -60,6 +60,7 @@ app.UseRouting();
 
 // Identity authentication & authorization
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 // Map routes

@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container mt-5 text-center">
+    <h1 class="text-danger">Access Denied</h1>
+    <p>You do not have permission to access this page.</p>
+    @if (ViewData["ReturnUrl"] != null)
+    {
+        <p>Return URL: @ViewData["ReturnUrl"]</p>
+    }
+    <a class="btn btn-primary mt-3" href="/">Go to Home</a>
+</div>
