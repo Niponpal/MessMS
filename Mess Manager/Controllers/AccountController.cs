@@ -11,7 +11,7 @@ public class AccountController : Controller
     private readonly UserManager<User> _userManager;
     private readonly IAuthService _authService;
 
-    // ✅ Correct constructor
+
     public AccountController(
         SignInManager<User> signInManager,
         UserManager<User> userManager,
