@@ -1,6 +1,7 @@
 ﻿using Mess_Manager.Data;
 using Mess_Manager.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mess_Manager.Repository
@@ -28,6 +29,17 @@ namespace Mess_Manager.Repository
                 await _context.SaveChangesAsync(cancellationToken);
             }
             return null!;
+        }
+
+        public IEnumerable<SelectListItem> Dropdown()
+        {
+            var data = _context.Staffs.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+
+            }).ToList(); 
+            return data;
         }
 
         public async Task<IEnumerable<Attendance>> GetAllAttendancesAsync(CancellationToken cancellationToken)

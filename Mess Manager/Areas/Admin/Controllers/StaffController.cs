@@ -9,10 +9,14 @@ namespace Mess_Manager.Areas.Admin.Controllers;
 public class StaffController : Controller
 {
     private readonly IStaffRepository _staffRepository;
+    private readonly IAttendanceRepository _attendanceRepository;
 
-    public StaffController(IStaffRepository staffRepository)
+   
+
+    public StaffController(IStaffRepository staffRepository, IAttendanceRepository attendanceRepository)
     {
         _staffRepository = staffRepository;
+        _attendanceRepository = attendanceRepository;
     }
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
@@ -25,6 +29,7 @@ public class StaffController : Controller
     {
         if (id == 0)
         {
+            ViewData["StaffId"] = _attendanceRepository.Dropdown();
             return View(new Staff());
         }
         var staff = await _staffRepository.GetStaffByIdAsync(id, cancellationToken);
@@ -32,6 +37,7 @@ public class StaffController : Controller
         {
             return NotFound();
         }
+        ViewData["StaffId"] = _attendanceRepository.Dropdown();
         return View(staff);
     }
     [HttpPost]
