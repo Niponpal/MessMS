@@ -11,5 +11,5 @@ public interface IAttendanceRepository
     Task<Attendance?> UpdateAttendanceAsync(Attendance attendance, CancellationToken cancellationToken);
     Task<Attendance> DeleteAttendanceAsync(int id, CancellationToken cancellationToken);
 
-    IEnumerable<SelectListItem> Dropdown();
+   
 }

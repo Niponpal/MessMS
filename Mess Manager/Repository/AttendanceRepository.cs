@@ -31,16 +31,7 @@ namespace Mess_Manager.Repository
             return null!;
         }
 
-        public IEnumerable<SelectListItem> Dropdown()
-        {
-            var data = _context.Staffs.Select(x => new SelectListItem
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-
-            }).ToList(); 
-            return data;
-        }
+   
 
         public async Task<IEnumerable<Attendance>> GetAllAttendancesAsync(CancellationToken cancellationToken)
         {

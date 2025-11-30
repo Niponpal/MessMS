@@ -15,6 +15,17 @@
                     <span asp-validation-for="Date" class="text-danger"></span>
                 </div>
 
+
+                <div class="form-floating mb-3">
+                    <select asp-for="Date" class="form-select" asp-items="ViewBag.Staffs">
+                        <option value="Date">-- Select Staff id --</option>
+                    </select>
+                    <label asp-for="Date">Staff</label>
+                    <span asp-validation-for="Date" class="text-danger small"></span>
+                </div>
+
+
+
                 <!-- Attendance Status -->
                 <div class="mb-3">
                     <label asp-for="Status" class="form-label fw-semibold">Status</label>
@@ -25,21 +36,15 @@
                     </select>
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
-
-                <!-- Staff Selection -->
-                <div class="mb-3">
-                    <label asp-for="StaffId" class="form-label fw-semibold">Select Staff</label>
-                    <select asp-for="StaffId" class="form-select shadow-sm" asp-items="ViewBag.StaffList">
-                        <option value="">-- Choose Staff --</option>
-                    </select>
-                    <span asp-validation-for="StaffId" class="text-danger"></span>
-                </div>
+               
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-between mt-4">
                     <a asp-action="Index" class="btn btn-outline-secondary px-4">Back to List</a>
+
+                  
                     <button type="submit" class="btn btn-primary px-4">
-                        <i class="bi bi-check-circle me-2"></i>Save Attendance
+                        <i class="bi bi-save2-fill me-1"></i> Save Attendance
                     </button>
                 </div>
 

@@ -1,42 +1,51 @@
 ﻿using Mess_Manager.Models;
 using Mess_Manager.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Mess_Manager.Areas.Admin.Controllers;
-
-[Area("Admin")]
-public class AttendanceController : Controller
+namespace Mess_Manager.Areas.Admin.Controllers
 {
- 
-    private readonly IAttendanceRepository _attendance;
-    public AttendanceController(IAttendanceRepository attendance)
+    [Area("Admin")]
+    public class AttendanceController : Controller
     {
-        _attendance = attendance;
-    }
-    public async Task<IActionResult> Index(CancellationToken cancellationToken)
-    {
-        var attenandances = await _attendance.GetAllAttendancesAsync(cancellationToken);
-        return View(attenandances);
-    }
-    [HttpGet]
-    public async Task<IActionResult> CreateOrEdit(int id, CancellationToken cancellationToken)
-    {
-        if(id == 0)
+        private readonly IAttendanceRepository _attendance;
+        private readonly IStaffRepository _staffRepository;
+
+        public AttendanceController(IAttendanceRepository attendance, IStaffRepository staffRepository)
         {
-            return View(new Attendance());
+            _attendance = attendance;
+            _staffRepository = staffRepository;
         }
-        var attendance = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
-        if(attendance == null)
+
+        public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
-            return NotFound();
+           
+            var attendances = await _attendance.GetAllAttendancesAsync(cancellationToken);
+            return View(attendances);
         }
-        return View(attendance);
-    }
-    [HttpPost]
-    public async Task<IActionResult> CreateOrEdit(Attendance attendance, CancellationToken cancellationToken)
-    {
+
+        [HttpGet]
+        public async Task<IActionResult> CreateOrEdit(int id, CancellationToken cancellationToken)
+        {
+            if (id == 0)
+            {
+                ViewData["StaffId"] = _staffRepository.Dropdown();
+                return View(new Attendance());
+            }
+            var attendance = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
+            if (attendance == null)
+            {
+                return NotFound();
+            }
+            ViewData["StaffId"] = _staffRepository.Dropdown();
+            return View(attendance);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateOrEdit(Attendance attendance, CancellationToken cancellationToken)
+        {
             if (attendance.Id == 0)
             {
+                 ViewData["StaffId"] = _staffRepository.Dropdown();
                 await _attendance.AddAttendanceAsync(attendance, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }
@@ -44,27 +53,29 @@ public class AttendanceController : Controller
             {
                 await _attendance.UpdateAttendanceAsync(attendance, cancellationToken);
                 return RedirectToAction(nameof(Index));
-            }      
-    }
-    [HttpPost]
-    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
-    {
-        var data = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
-        if (data != null)
-        {
-            await _attendance.DeleteAttendanceAsync(id, cancellationToken);
-            return RedirectToAction(nameof(Index));
+            }
         }
-        return NotFound();
-    }
-    [HttpGet]
-    public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
-    {
-        var attendance = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
-        if(attendance == null)
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
         {
+            var data = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
+            if (data != null)
+            {
+                await _attendance.DeleteAttendanceAsync(id, cancellationToken);
+                return RedirectToAction(nameof(Index));
+            }
             return NotFound();
         }
-        return View(attendance);
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
+        {
+            var attendance = await _attendance.GetAttendanceByIdAsync(id, cancellationToken);
+            if (attendance == null)
+                return NotFound();
+
+            return View(attendance);
+        }
     }
 }

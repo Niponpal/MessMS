@@ -17,8 +17,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Date</th>
-                    <th>In Time</th>
-                    <th>Out Time</th>
+               
+          
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -28,8 +28,9 @@
                 {
                     <tr>
                         <td>@attendance.Id</td>
-                        <td>@attendance.Status</td>
+                        
                         <td>@attendance.Date.ToString("yyyy-MM-dd")</td>
+                        <td>@attendance.Status</td>
                         <!-- Actions -->
                         <td class="text-center">
 
@@ -64,9 +65,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Date</th>
-                    <th>In Time</th>
-                    <th>Out Time</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </tfoot>
