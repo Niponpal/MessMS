@@ -21,6 +21,7 @@ public class StaffController : Controller
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
+       
         var staff = await _staffRepository.GetAllStaffsAsync(cancellationToken);
         return View(staff);
     }
@@ -29,7 +30,7 @@ public class StaffController : Controller
     {
         if (id == 0)
         {
-            ViewData["StaffId"] = _attendanceRepository.Dropdown();
+         ViewData["StaffId"] = _attendanceRepository.Dropdown();
             return View(new Staff());
         }
         var staff = await _staffRepository.GetStaffByIdAsync(id, cancellationToken);

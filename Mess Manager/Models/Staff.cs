@@ -10,5 +10,9 @@ public class Staff
     public DateTime JoiningDate { get; set; }
 
     // Relationships
+
     public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+    // For dropdown selection
+    public int? AttendanceId { get; set; }
+    public Attendance? Attendance { get; set; }
 }
