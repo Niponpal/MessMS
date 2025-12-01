@@ -4,6 +4,328 @@
     ViewData["Title"] = "Attendance Details";
 }
 
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-10">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none">Attendance</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Details</li>
+                </ol>
+            </nav>
+
+            <!-- Main Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Card Header with Gradient -->
+                <div class="card-header py-4 px-5"
+                     style="background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-info) 100%);">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-wrapper bg-white bg-opacity-20 rounded-3 p-3 me-4">
+                                <i class="bi bi-calendar-check-fill fs-3 text-white"></i>
+                            </div>
+                            <div>
+                                <h1 class="h3 mb-1 text-white fw-bold">Attendance Record</h1>
+                                <p class="mb-0 text-white-75">Complete details of attendance entry</p>
+                            </div>
+                        </div>
+                        <div class="badge bg-white bg-opacity-25 text-white px-3 py-2 rounded-pill">
+                            ID: @Model.Id
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body p-5">
+                    <!-- Details Grid -->
+                    <div class="row g-4">
+                        <!-- Date Card -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="avatar-sm mx-auto mb-3">
+                                        <div class="avatar-title bg-primary bg-opacity-10 text-primary rounded-3">
+                                            <i class="bi bi-calendar-date fs-4"></i>
+                                        </div>
+                                    </div>
+                                    <h6 class="text-muted mb-2">Attendance Date</h6>
+                                    <h4 class="fw-bold text-dark mb-0">@Model.Date.ToString("dd MMM yyyy")</h4>
+                                    <small class="text-muted d-block mt-2">@Model.Date.ToString("dddd")</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Card -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="avatar-sm mx-auto mb-3">
+                                        <div class="avatar-title bg-success bg-opacity-10 text-success rounded-3">
+                                            <i class="bi bi-person-badge fs-4"></i>
+                                        </div>
+                                    </div>
+                                    <h6 class="text-muted mb-2">Staff Member</h6>
+                                    <h4 class="fw-bold text-dark mb-2">@Model.Staff?.Name</h4>
+                                    <span class="badge bg-light text-dark">
+                                        <i class="bi bi-person-circle me-1"></i>Staff ID: @Model.StaffId
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Card -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border h-100 shadow-sm hover-lift">
+                                <div class="card-body text-center p-4">
+                                    <div class="avatar-sm mx-auto mb-3">
+                                        <div class="avatar-title  bg-opacity-10 text-warning rounded-3">
+                                            <i class="bi bi-clipboard-check fs-4"></i>
+                                        </div>
+                                    </div>
+                                    <h6 class="text-muted mb-2">Attendance Status</h6>
+                                    @if (Model.Status == "Present")
+                                    {
+                                        <div class="d-inline-flex align-items-center  bg-opacity-10 px-4 py-2 rounded-3">
+                                            <div class="status-indicator bg-success me-2"></div>
+                                            <h4 class="fw-bold text-success mb-0">Present</h4>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-inline-flex align-items-center bg-opacity-10 px-4 py-2 rounded-3">
+                                            <div class="status-indicator  me-2"></div>
+                                            <h4 class="fw-bold text-danger text-primary mb-0">Absent</h4>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="card border">
+                                <div class="card-header bg-light py-3">
+                                    <h5 class="mb-0">
+                                        <i class="bi bi-info-circle me-2"></i>Additional Information
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <dl class="row mb-0">
+                                                <dt class="col-sm-5 text-muted">Record ID:</dt>
+                                                <dd class="col-sm-7 fw-semibold">ATT-@Model.Id.ToString("D4")</dd>
+
+                                                <dt class="col-sm-5 text-muted">Created Date:</dt>
+                                                <dd class="col-sm-7 fw-semibold">@DateTime.Now.ToString("dd MMM yyyy")</dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <dl class="row mb-0">
+                                                <dt class="col-sm-5 text-muted">Staff Name:</dt>
+                                                <dd class="col-sm-7 fw-semibold">@(Model.Staff?.Name)</dd>
+
+                                                <dt class="col-sm-5 text-muted">Staff Phone Number:</dt>
+                                                <dd class="col-sm-7 fw-semibold">@(Model.Staff?.PhoneNumber )</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center pt-5 mt-4 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2 rounded-3">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Dashboard
+                        </a>
+
+                        <div class="btn-group" role="group">
+                            <a asp-action="CreateOrEdit" asp-route-id="@Model.Id"
+                               class="btn btn-warning px-4 py-2 rounded-start-3">
+                                <i class="bi bi-pencil-square me-2"></i>Edit Record
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id"
+                               class="btn btn-danger px-4 py-2 rounded-end-3"
+                               onclick="return confirm('Are you sure you want to delete this attendance record?')">
+                                <i class="bi bi-trash3 me-2"></i>Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Footer -->
+                <div class="card-footer bg-light py-3 px-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <small class="text-muted">
+                                <i class="bi bi-clock-history me-1"></i>
+                                Last updated: Just now
+                            </small>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <small class="text-muted">
+                                <i class="bi bi-shield-check me-1"></i>
+                                Secure • Verified • Confidential
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="alert alert-info border-0 rounded-3">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-graph-up fs-4"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading mb-1">Attendance Statistics</h6>
+                                <p class="mb-0 small">
+                                    This attendance record contributes to monthly staff performance reports and payroll calculations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+    :root {
+        --bs-primary: #3b82f6;
+        --bs-info: #0dcaf0;
+    }
+
+    .icon-wrapper {
+        backdrop-filter: blur(10px);
+    }
+
+    .hover-lift {
+        transition: all 0.3s ease;
+    }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+    .avatar-sm {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .avatar-title {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+
+    .breadcrumb {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .breadcrumb-item a {
+        color: var(--bs-primary);
+        transition: color 0.2s;
+    }
+
+        .breadcrumb-item a:hover {
+            color: #2563eb;
+        }
+
+    .btn-outline-secondary {
+        border-width: 2px;
+    }
+
+    .btn-warning {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        border: none;
+        color: white !important;
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        border: none;
+    }
+
+    .btn-group .btn {
+        border-left: 1px solid rgba(255,255,255,0.2);
+    }
+
+        .btn-group .btn:first-child {
+            border-left: none;
+        }
+
+    @@keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .card-header .d-flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .btn-group {
+            flex-direction: column;
+            width: 100%;
+        }
+
+            .btn-group .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+                border-radius: 0.5rem !important;
+            }
+    }
+</style>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+
+
+
+
+@* @model Mess_Manager.Models.Attendance
+
+@{
+    ViewData["Title"] = "Attendance Details";
+}
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
@@ -59,3 +381,4 @@
         </div>
     </div>
 </div>
+ *@

@@ -1,5 +1,193 @@
 ﻿@model Mess_Manager.Models.Attendance
 
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-10">
+            <!-- Card with subtle shadow and smooth border radius -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <!-- Card Header with gradient background -->
+                <div class="card-header bg-gradient-primary text-white py-4 px-5">
+                    <div class="d-flex align-items-center">
+                        <div class="icon-shape bg-white bg-opacity-10 rounded-circle p-3 me-3">
+                            <i class="bi bi-calendar-check-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h2 class="h4 mb-1">Record Attendance</h2>
+                            <p class="mb-0 opacity-75">Add new attendance record for staff members</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body p-5">
+                    <form asp-action="CreateOrEdit" method="post" class="needs-validation" novalidate>
+                        <!-- Attendance Date Field -->
+                        <div class="mb-4">
+                            <label asp-for="Date" class="form-label fw-semibold mb-2 text-dark">
+                                <i class="bi bi-calendar-date me-2"></i>Attendance Date
+                            </label>
+                            <div class="input-group input-group-lg has-validation">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="bi bi-calendar3 text-primary"></i>
+                                </span>
+                                <input asp-for="Date" type="date"
+                                       class="form-control border-start-0 ps-3 shadow-sm"
+                                       required>
+                                <div class="invalid-feedback">
+                                    Please select a valid date.
+                                </div>
+                            </div>
+                            <span asp-validation-for="Date" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <!-- Staff Selection Field -->
+                        <div class="mb-4">
+                            <label asp-for="StaffId" class="form-label fw-semibold mb-2 text-dark">
+                                <i class="bi bi-person-badge me-2"></i>Select Staff Member
+                            </label>
+                            <div class="input-group input-group-lg has-validation">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="bi bi-people text-primary"></i>
+                                </span>
+                                <select asp-for="StaffId"
+                                        class="form-select border-start-0 ps-3 shadow-sm"
+                                        asp-items="ViewBag.StaffId"
+                                        required>
+                                    <option value="" disabled selected>-- Choose Staff Member --</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a staff member.
+                                </div>
+                            </div>
+                            <span asp-validation-for="StaffId" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <!-- Attendance Status Field -->
+                        <div class="mb-5">
+                            <label asp-for="Status" class="form-label fw-semibold mb-2 text-dark">
+                                <i class="bi bi-clipboard-check me-2"></i>Attendance Status
+                            </label>
+                            <div class="input-group input-group-lg has-validation">
+                                <span class="input-group-text bg-light border-end-0">
+                                    <i class="bi bi-info-circle text-primary"></i>
+                                </span>
+                                <select asp-for="Status"
+                                        class="form-select border-start-0 ps-3 shadow-sm"
+                                        required>
+                                    <option value="" disabled selected>-- Select Status --</option>
+                                    <option value="Present" class="text-success">Present</option>
+                                    <option value="Absent" class="text-danger">Absent</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select attendance status.
+                                </div>
+                            </div>
+                            <span asp-validation-for="Status" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-grid gap-3 d-md-flex justify-content-md-end pt-4 border-top">
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary px-4 py-3 fw-medium rounded-3">
+                                <i class="bi bi-arrow-left me-2"></i>Back to List
+                            </a>
+                            <button type="submit"
+                                    class="btn btn-primary px-5 py-3 fw-medium rounded-3 shadow-sm">
+                                <i class="bi bi-check-circle-fill me-2"></i>Save Attendance
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Card Footer with helpful text -->
+                <div class="card-footer bg-light py-3 px-5">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-info-circle text-primary me-2"></i>
+                        </div>
+                        <div class="col">
+                            <small class="text-muted">
+                                Attendance records are used for payroll calculation and performance tracking.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Validation Script -->
+@section Scripts {
+    <script>
+        // Bootstrap form validation
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+}
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+
+    .icon-shape {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>
+
+
+@* @model Mess_Manager.Models.Attendance
+
 <div class="container mt-5">
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header bg-primary text-white text-center py-3">
@@ -52,3 +240,4 @@
         </div>
     </div>
 </div>
+ *@
