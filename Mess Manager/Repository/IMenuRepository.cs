@@ -1,4 +1,5 @@
 ﻿using Mess_Manager.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Mess_Manager.Repository
 {
@@ -9,5 +10,7 @@ namespace Mess_Manager.Repository
         Task<Menu> AddMenuAsync(Menu Menu, CancellationToken cancellationToken);
         Task<Menu?> UpdateMenuAsync(Menu Menu, CancellationToken cancellationToken);
         Task<Menu> DeleteMenuAsync(int id, CancellationToken cancellationToken);
+
+     
     }
 }

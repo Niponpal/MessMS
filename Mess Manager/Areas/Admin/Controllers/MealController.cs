@@ -9,13 +9,18 @@ namespace Mess_Manager.Areas.Admin.Controllers;
 public class MealController : Controller
 {
     private readonly IMealRepository _mealRepository;
-    public MealController(IMealRepository mealRepository)
+
+    private readonly IMemberRepository _memberRepository;
+
+    public MealController(IMealRepository mealRepository, IMemberRepository memberRepository)
     {
         _mealRepository = mealRepository;
+        _memberRepository = memberRepository;
     }
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
+        
         var meals = await _mealRepository.GetAllMealsAsync(cancellationToken);
         return View(meals);
     }
@@ -24,6 +29,7 @@ public class MealController : Controller
     {
         if (id == 0)
         {
+            ViewData["MemberId"] = _memberRepository.Dropdown();
             return View(new Meal());
         }
         var meals = await _mealRepository.GetMealByIdAsync(id, cancellationToken);
@@ -31,6 +37,7 @@ public class MealController : Controller
         {
             return NotFound();
         }
+        ViewData["MemberId"] = _memberRepository.Dropdown();
         return View(meals);
     }
     [HttpPost]
