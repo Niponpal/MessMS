@@ -51,6 +51,7 @@ namespace Mess_Manager.Areas.Admin.Controllers
             }
             else
             {
+                ViewData["StaffId"] = _staffRepository.Dropdown();
                 await _attendance.UpdateAttendanceAsync(attendance, cancellationToken);
                 return RedirectToAction(nameof(Index));
             }

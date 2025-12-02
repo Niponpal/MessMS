@@ -24,6 +24,7 @@ public class InventoryController : Controller
     {
         if (id == 0)
         {
+
             return View(new Inventory());
         }
         var inventories = await _inventoryRepository.GetInventoryByIdAsync(id, cancellationToken);

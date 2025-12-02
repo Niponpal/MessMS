@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mess_Manager.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251130175256_ints")]
+    [Migration("20251202053036_ints")]
     partial class ints
     {
         /// <inheritdoc />
@@ -208,7 +208,7 @@ namespace Mess_Manager.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c78c9714-28c3-4335-a5ef-f44eaff80b86",
+                            ConcurrencyStamp = "452f1d0c-d5d5-49f2-95eb-12455d9bd657",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "admin@localhost.com",
@@ -217,9 +217,9 @@ namespace Mess_Manager.Migrations
                             Name = "",
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENN78fKzPMpubzzWpMkIQkk6/MSPpCqeX/LBwdIBWoPR2jXat2c0BT1R3WwLa8/Xog==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENA4nW+74Iqg2DRRKRFTErXt6Vi5Ogpf0+Ag8xgjXqDUl9nbmMZMQfBRwWO5yHRtTA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fbce85d4-c15d-483b-97b5-364d3d6af2cf",
+                            SecurityStamp = "9636546c-4bf1-4835-ab62-a0d452b07aaf",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
@@ -227,7 +227,7 @@ namespace Mess_Manager.Migrations
                         {
                             Id = 2L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c648b677-59ee-4ff5-8988-2be0ceba3126",
+                            ConcurrencyStamp = "458644f5-9531-413f-a597-7bcceaa54654",
                             CreatedBy = 0L,
                             CreatedDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "employee@localhost.com",
@@ -236,9 +236,9 @@ namespace Mess_Manager.Migrations
                             Name = "",
                             NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
                             NormalizedUserName = "EMPLOYEE@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEl9hqPmssWj9sRX6tClkrnSr9Mk0oHbIFzYAlXIjOKD9GMyacmCZ9lks1KV/VPSYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBXQOWD4mcH3Xh6FzkmfXvT4g6b5U5mjFoupJuBZEipxi08Tu/JGmXfR/wOUHYS/ZQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c58ce6d0-672a-467f-9187-14497c88d7ba",
+                            SecurityStamp = "c152178d-0987-40e3-a7fc-187ccb1404ee",
                             TwoFactorEnabled = false,
                             UserName = "employee@localhost.com"
                         });

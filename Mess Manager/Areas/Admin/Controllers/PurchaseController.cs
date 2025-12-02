@@ -9,11 +9,18 @@ namespace Mess_Manager.Areas.Admin.Controllers;
 public class PurchaseController : Controller
 {
     private readonly IPurchaseRepository _purchaseRepository;
+    private readonly IInventoryRepository _inventoryRepository;
+    private readonly ISupplierRepository _supplierRepository;
 
-    public PurchaseController(IPurchaseRepository purchaseRepository)
+ 
+
+    public PurchaseController(IPurchaseRepository purchaseRepository, IInventoryRepository inventoryRepository, ISupplierRepository supplierRepository)
     {
         _purchaseRepository = purchaseRepository;
+        _inventoryRepository = inventoryRepository;
+        _supplierRepository = supplierRepository;
     }
+
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
         var purchases = await _purchaseRepository.GetAllPurchasesAsync(cancellationToken);
@@ -24,6 +31,8 @@ public class PurchaseController : Controller
     {
         if (id == 0)
         {
+            ViewData["SupplierId"] = _inventoryRepository.Dropdown();
+            ViewData["InventoryId"] = _inventoryRepository.Dropdown();
             return View(new Purchase());
         }
         var purchases = await _purchaseRepository.GetPurchaseByIdAsync(id, cancellationToken);
@@ -31,6 +40,8 @@ public class PurchaseController : Controller
         {
             return NotFound();
         }
+        ViewData["SupplierId"] = _inventoryRepository.Dropdown();
+        ViewData["InventoryId"] = _inventoryRepository.Dropdown();
         return View(purchases);
     }
     [HttpPost]
@@ -38,11 +49,15 @@ public class PurchaseController : Controller
     {
         if (purchase.Id == 0)
         {
+            ViewData["SupplierId"] = _inventoryRepository.Dropdown();
+            ViewData["InventoryId"] = _inventoryRepository.Dropdown();
             await _purchaseRepository.AddPurchaseAsync(purchase, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
         else
         {
+            ViewData["SupplierId"] = _inventoryRepository.Dropdown();
+            ViewData["InventoryId"] = _inventoryRepository.Dropdown();
             await _purchaseRepository.UpdatePurchaseAsync(purchase, cancellationToken);
             return RedirectToAction(nameof(Index));
         }

@@ -1,4 +1,5 @@
 ﻿using Mess_Manager.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Mess_Manager.Repository
 {
@@ -9,5 +10,6 @@ namespace Mess_Manager.Repository
         Task<Supplier> AddSupplierAsync(Supplier Supplier, CancellationToken cancellationToken);
         Task<Supplier?> UpdateSupplierAsync(Supplier Supplier, CancellationToken cancellationToken);
         Task<Supplier> DeleteSupplierAsync(int id, CancellationToken cancellationToken);
+        IEnumerable<SelectListItem> Dropdown();
     }
 }

@@ -11,6 +11,7 @@ public class Purchase
     // Relationships
     public int SupplierId { get; set; }
     public Supplier Supplier { get; set; }
+
     public Inventory Inventory { get; set; }
     public int InventoryId { get; set; }
    

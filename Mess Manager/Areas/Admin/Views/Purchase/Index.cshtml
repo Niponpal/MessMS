@@ -13,12 +13,11 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Supplier Name</th>
-                    <th>Item Name</th>
+                    <th>Items Id</th>
                     <th>Quantity</th>
                     <th>Price (৳)</th>
                     <th>Purchase Date</th>
-                    <th>Total (৳)</th>
+                  
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -27,12 +26,11 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.Supplier?.SupplierName</td>
-                        <td>@item.Inventory?.ItemName</td>
-                        <td>@item.Quantity</td>
+                 
+                        <td>@item.ItemId</td>
                         <td>@item.Price.ToString("0.00")</td>
-                        <td>@item.PurchaseDate.ToString("dd-MMM-yyyy")</td>
                         <td>@((item.Quantity * item.Price).ToString("0.00"))</td>
+                        <td>@item.PurchaseDate.ToString("dd-MMM-yyyy")</td>
                         <!-- Actions -->
                         <td class="text-center">
 
@@ -66,12 +64,11 @@
             <tfoot>
                 <tr>
                     <th>Id</th>
-                    <th>Supplier Name</th>
-                    <th>Item Name</th>
+                    <th>Items Id</th>
                     <th>Quantity</th>
                     <th>Price (৳)</th>
                     <th>Purchase Date</th>
-                    <th>Total (৳)</th>
+
                     <th class="text-center">Actions</th>
                 </tr>
             </tfoot>
