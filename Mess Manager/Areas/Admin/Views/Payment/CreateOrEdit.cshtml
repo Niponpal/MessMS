@@ -35,13 +35,12 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select asp-for="MemberId" class="form-select" asp-items="ViewBag.MemberList">
-                                <option value="">-- Select Member --</option>
+                            <select asp-for="MemberId" class="form-select" asp-items="ViewBag.MemberId">
+                                <option value="">-- Select Staff --</option>
                             </select>
                             <label asp-for="MemberId">Member Name</label>
                             <span asp-validation-for="MemberId" class="text-danger small"></span>
                         </div>
-
                         <div class="form-floating mb-4">
                             <input asp-for="AmountPaid" class="form-control" type="number" step="0.01" placeholder="Enter amount paid" />
                             <label asp-for="AmountPaid">Amount Paid</label>

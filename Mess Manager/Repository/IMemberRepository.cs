@@ -11,5 +11,6 @@ namespace Mess_Manager.Repository
         Task<Member?> UpdateMemberAsync(Member Member, CancellationToken cancellationToken);
         Task<Member> DeleteMemberAsync(int id, CancellationToken cancellationToken);
         IEnumerable<SelectListItem> Dropdown();
+      
     }
 }

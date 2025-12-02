@@ -8,10 +8,12 @@ namespace Mess_Manager.Areas.Admin.Controllers;
 public class PaymentController : Controller
 {
     private readonly IPaymentRepository _paymentRepository;
+    private readonly IMemberRepository _memberRepository;
     
-    public PaymentController(IPaymentRepository paymentRepository)
+    public PaymentController(IPaymentRepository paymentRepository, IMemberRepository memberRepository)
     {
         _paymentRepository = paymentRepository;
+        _memberRepository = memberRepository;
     }
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
@@ -24,6 +26,7 @@ public class PaymentController : Controller
     {
         if (id == 0)
         {
+            ViewData["MemberId"] = _memberRepository.Dropdown();
             return View(new Payment());
         }
         var payments = await _paymentRepository.GetPaymentByIdAsync(id, cancellationToken);
@@ -31,6 +34,7 @@ public class PaymentController : Controller
         {
             return NotFound();
         }
+        ViewData["MemberId"] = _memberRepository.Dropdown();
         return View(payments);
     }
     [HttpPost]
@@ -38,11 +42,13 @@ public class PaymentController : Controller
     {
         if (payment.Id == 0)
         {
+            ViewData["MemberId"] = _memberRepository.Dropdown();
             await _paymentRepository.AddPaymentAsync(payment, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
         else
         {
+            ViewData["MemberId"] = _memberRepository.Dropdown();
             await _paymentRepository.UpdatePaymentAsync(payment, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
