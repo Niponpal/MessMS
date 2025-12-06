@@ -17,8 +17,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Date</th>
-               
-          
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -42,8 +40,8 @@
                                 </a>
 
                                 <!-- Delete Button -->
-                                <form method="post" asp-action="Delete" asp-route-id="@attendance.Id" onsubmit="return confirm('Are you sure you want to delete this record?');">
-                                    <button type="submit" class="btn btn-sm btn-danger">
+                                <form class="mx-1" method="post" asp-action="Delete" asp-route-id="@attendance.Id" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                                    <button type="submit" class="btn btn-sm btn-danger ">
                                         <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
